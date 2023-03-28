@@ -4,9 +4,46 @@
 
 We will build basic CRUD application using gRPC API and Protobuf in NodeJS.
 
-## CRUD Functions
+## Development Steps
 
-### Proto file
+### 1. Init Project
+
+1. Clone your github repo in local
+    ```bash
+    git clone https://github.com/mocatfrio/integrative-programming.git
+    ```
+
+2. Then make project directory
+    ```bash
+    mkdir grpc-nodejs
+    ```
+  Move to the directory
+    ```bash
+    cd grpc-nodejs
+    ```
+
+3. Init node env
+    ```bash
+    npm init
+    ```
+    Install grpc library
+    ```bash
+    npm i @grpc/grpc-js
+    ```
+
+4. Create 4 files:
+    * [Proto file](mahasiswa.proto)
+    * [Server.js](server.js)
+    * [Client.js](client.js)
+    * [Main file for testing (run.js)](run.js)
+
+    ```bash
+    touch mahasiswa.proto client.js server.js run.js
+    ```
+
+### 2. Add CRUD Functions
+
+#### a. Proto file
 ```protobuf
 // Service 
 service MahasiswaService {
@@ -22,7 +59,7 @@ service MahasiswaService {
 }
 ```
 
-### Server
+#### b. Server
 Dummy data
 
 ```js
@@ -84,7 +121,7 @@ server.addService(mahasiswaProto.MahasiswaService.service, {
 })
 ```
 
-### Main file
+#### c. Main file
 We need new js file to test our application, named **run.js**
 
 ```js
@@ -153,8 +190,8 @@ client.deleteMahasiswa(
 ```
 
 
-## Screenshot
-Use `npm start` to start the server and `node run` to start the client.
+## Testing
+Use `npm start` to start the server and `node run` to start the client. Here is the screenshot.
 
 ![ss1](./img/ss1.png)
 
