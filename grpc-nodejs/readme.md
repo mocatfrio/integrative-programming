@@ -17,7 +17,7 @@ We will build basic CRUD application using gRPC API and Protobuf in NodeJS.
     ```bash
     mkdir grpc-nodejs
     ```
-  Move to the directory
+    Move to the directory
     ```bash
     cd grpc-nodejs
     ```
