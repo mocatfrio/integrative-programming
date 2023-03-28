@@ -170,7 +170,7 @@ Optional:
     For example:
     
     * **/mahasiswa** GET endpoint will call the getAll to get all mahasiswa in the database.
-    * **/mahasiwa/:id/edit** POST will call the **editMahasiswa** to edit an item.
+    * **/mahasiwa/:id/edit** POST will call the editMahasiswa to edit an item.
 
       etc.
 
