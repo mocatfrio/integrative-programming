@@ -161,9 +161,9 @@ Use `npm start` to start the server and `node run` to start the client.
 ## Assignments
 
 1. Make connection to the database (such as MongoDB etc)
-2. Modify the CRUD function to update data in the database
+2. Modify the existing CRUD function so that it can update data in the database
 
-Optional:
+Optional but preferred:
 
 3. Use the HTTP server and create endpoints to call our gRPC service procedures.
 
@@ -175,4 +175,7 @@ Optional:
       etc.
 
 4. Add simple UI 
+
+## Others
+* Markdown Guide: https://www.markdownguide.org/basic-syntax/
     
