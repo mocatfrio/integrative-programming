@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+// Object 
+
 message Mahasiswa {
   string id = 1;
   string nama = 2;
@@ -7,12 +9,25 @@ message Mahasiswa {
   int64 nilai = 4;
 }
 
-message Empty {}
-
 message MahasiswaList {
   repeated Mahasiswa mahasiswa = 1;
 }
 
+message MahasiswaId {
+  string id = 1;
+}
+
+message Empty {}
+
+// Service 
 service MahasiswaService {
+  // Create 
+  rpc AddMahasiswa (Mahasiswa) returns (Mahasiswa) {}
+  // Read 
   rpc GetAll (Empty) returns (MahasiswaList) {}
+  rpc GetMahasiswa (MahasiswaId) returns (Mahasiswa) {}
+  // Update
+  rpc EditMahasiswa (Mahasiswa) returns (Mahasiswa) {}
+  // Delete
+  rpc DeleteMahasiswa (MahasiswaId) returns (Empty) {}
 }

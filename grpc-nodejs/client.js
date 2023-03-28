@@ -24,7 +24,4 @@ const client = new MahasiswaService(
   grpc.credentials.createInsecure()
 )
 
-client.getAll({}, (error, mahasiswa) => {
-  if(!error) throw error
-    console.log(mahasiswa);
-})
+module.exports = client;

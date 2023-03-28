@@ -21,25 +21,55 @@ const mahasiswaProto = grpc.loadPackageDefinition(packageDefinition);
 const server = new grpc.Server();
 
 // Dummy data 
-let mahasiswa = [
-  {
-    id: "1",
-    nama: "Rudi",
-    nrp: "5119",
-    nilai: 59
-  },
-  {
-    id: "2",
-    nama: "Budi",
-    nrp: "5118",
-    nilai: 60
-  }
-]
+let mahasiswa = {
+  mahasiswa: [
+    {
+      id: "1",
+      nama: "Rudi",
+      nrp: "5119",
+      nilai: 59
+    },
+    {
+      id: "2",
+      nama: "Budi",
+      nrp: "5118",
+      nilai: 60
+    }
+  ]
+}
 
+// Add service in proto 
 server.addService(mahasiswaProto.MahasiswaService.service, {
-  getAll: (_, callback) => {
+  // Create
+  addMahasiswa: (call, callback) =>  {
+    const _mahasiswa = { ...call.request };
+    mahasiswa.mahasiswa.push(_mahasiswa);
+    callback(null, _mahasiswa);
+  },
+  // Read 
+  getAll: (call, callback) => {
     callback(null, mahasiswa);
-  }
+  },
+  getMahasiswa: (call, callback) => {
+    const mahasiswaId = call.request.id;
+    const mahasiswaItem = mahasiswa.mahasiswa.find(({ id }) => mahasiswaId == id);
+    callback(null, mahasiswaItem);
+  },
+  // Update
+  editMahasiswa: (call, callback) => {
+    const mahasiswaId = call.request.id;
+    const mahasiswaItem = mahasiswa.mahasiswa.find(({ id }) => mahasiswaId == id);
+    mahasiswaItem.nama = call.request.nama;
+    mahasiswaItem.nrp = call.request.nrp;
+    mahasiswaItem.nilai = call.request.nilai;
+    callback(null, mahasiswaItem)
+  },
+  // Delete 
+  deleteMahasiswa: (call, callback) => {
+    const mahasiswaId = call.request.id;
+    mahasiswa = mahasiswa.mahasiswa.filter(({ id }) => id !== mahasiswaId);
+    callback(null, {mahasiswa});
+  },
 })
 
 // Start server 
@@ -51,3 +81,4 @@ server.bindAsync(
     server.start();
   }
 )
+

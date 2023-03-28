@@ -17,6 +17,5 @@ Make sure this following tools installed in our machine:
 ![check](img/check-installation.png)
 
 ## What will we learn?
-* [Protobuf](protobuf-nodejs.md)
-* gRPC
+* [gRPC API & Protobuf](./grpc-nodejs/readme.md)
 * Web Socket
