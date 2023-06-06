@@ -5,7 +5,6 @@ const path = require("path");
 const app = express();
 
 // Mengakses file client
-__dirname = "/Users/mocatfrio/Sites/coba-socket";
 app.use(express.static(path.resolve(__dirname, "client")));
 
 // Define route
